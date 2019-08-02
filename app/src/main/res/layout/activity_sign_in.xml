@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.example.ravi.view.SignInActivity" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/loginCard"
+        android:layout_gravity="center"
+        android:background="@color/whiteCardColor"
+        android:elevation="5dp"
+        app:cardCornerRadius="@dimen/loginCardRadius"
+        app:layout_margin="@{16}"
+        tools:layout_margin="16dp">
+
+        <LinearLayout
+            style="@style/linearParent"
+            android:layout_gravity="center"
+            app:layout_margin="@{16}"
+            tools:layout_margin="16dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/headerTextPrimary"
+                android:text="Login"
+                app:layout_marginTop="@{20}"
+                tools:layout_marginTop="20dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_email"
+                style="@style/parent"
+                app:layout_marginTop="@{20}"
+                tools:layout_marginTop="20dp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_email"
+                    style="@style/ModifiedEditText"
+                    android:hint="@string/login_email_hint"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_pass"
+                style="@style/parent"
+                app:layout_marginTop="@{20}"
+                tools:layout_marginTop="20dp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_pass"
+                    style="@style/ModifiedEditText"
+                    android:hint="@string/login_password_hint"
+                    android:inputType="textPassword"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+           <!-- <androidx.appcompat.widget.AppCompatTextView
+                style="@style/viewParent"
+                android:layout_gravity="end"
+                android:onClick="viewForgotPAssword"
+                android:text="Forgot Password?"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/newsMoreTextSize"
+                app:layout_marginTop="@{20}"
+                tools:layout_marginTop="20dp" />-->
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/ButtonAppearance"
+                android:layout_gravity="center_horizontal"
+                android:text="Login"
+                app:cornerRadius="26dp"
+                app:layout_marginTop="@{20}"
+                tools:layout_marginTop="20dp"
+                android:onClick="@{() -> listener.onSignInClick()}"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/parent"
+                android:onClick="@{() -> listener.onSignUpClick()}"
+                android:text="@string/login_signup_hint"
+                android:textAlignment="center"
+                android:textColor="@color/primaryTextColor"
+                android:textStyle="bold"
+                app:layout_marginTop="@{20}"
+                tools:layout_marginTop="20dp" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
