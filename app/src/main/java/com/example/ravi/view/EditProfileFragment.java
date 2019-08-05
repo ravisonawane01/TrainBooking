@@ -1,5 +1,6 @@
 package com.example.ravi.view;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,7 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.bumptech.glide.Glide;
 import com.example.ravi.R;
 import com.example.ravi.base.BaseContainerFragment;
 import com.example.ravi.databinding.FragmentEditProfileBinding;
@@ -21,10 +21,9 @@ import com.example.ravi.entity.UserEntity;
 import com.example.ravi.utils.SharePrefUtil;
 import com.example.ravi.utils.Util;
 import com.example.ravi.viewmodel.UserViewModel;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
-
-import static android.app.Activity.RESULT_OK;
 
 public class EditProfileFragment extends BaseContainerFragment {
 
@@ -50,28 +49,26 @@ public class EditProfileFragment extends BaseContainerFragment {
         editProfileBinding.etEmail.setText(userEntity.getEmail() != null ? userEntity.getEmail() : "");
 
         Uri uri = Uri.parse(userEntity.getPhoto() != null ? userEntity.getPhoto() : "");
-        editProfileBinding.ivEditPic.setImageURI(uri);
-
-        /*Glide.with(getActivity())
+        Picasso.with(getActivity())
                 .load(new File(uri.getPath()))
                 .placeholder(R.mipmap.ic_launcher_round)
                 .error(R.mipmap.ic_launcher_round)
-                .into(editProfileBinding.ivEditPic);*/
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
+                .into(editProfileBinding.ivEditPic);
     }
 
     public void onClickEvents(View view) {
         switch (view.getId()) {
             case R.id.iv_edit_pic:
-                Intent intent = new Intent();
+                /*Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "select a picture"), IMAGE_CODE);
+                startActivityForResult(Intent.createChooser(intent, "select a picture"), IMAGE_CODE);*/
+
+
+                Intent i = new Intent(
+                        Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i, IMAGE_CODE);
                 break;
 
             case R.id.btn_edit:
@@ -90,15 +87,15 @@ public class EditProfileFragment extends BaseContainerFragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == IMAGE_CODE) {
-            if (resultCode == RESULT_OK) {
-                selectedImageUri = data.getData();
-                editProfileBinding.ivEditPic.setImageURI(selectedImageUri);
-                /*Glide.with(getActivity())
-                        .load(new File(selectedImageUri.getPath()))
+        if (requestCode == IMAGE_CODE
+                && resultCode == Activity.RESULT_OK) {
+            String path = Util.getPathFromCameraData(data, this.getActivity());
+            if (path != null) {
+                Picasso.with(getActivity())
+                        .load(path)
                         .placeholder(R.mipmap.ic_launcher_round)
                         .error(R.mipmap.ic_launcher_round)
-                        .into(editProfileBinding.ivEditPic);*/
+                        .into(editProfileBinding.ivEditPic);
             }
         }
     }

@@ -82,13 +82,4 @@ public class DashboardActivity extends AppCompatActivity {
         super.onBackPressed();
         SharePrefUtil.clearUsernamePreference(this);
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.main_container);
-        if (fragment != null) {
-            fragment.onActivityResult(requestCode, resultCode, data);
-        }
-    }
 }
