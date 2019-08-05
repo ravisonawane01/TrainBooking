@@ -10,173 +10,168 @@
             type="com.example.ravi.view.SignUpActivity" />
     </data>
 
-    <com.google.android.material.card.MaterialCardView
-        style="@style/loginCard"
-        android:layout_gravity="center"
-        android:background="@color/whiteCardColor"
-        android:elevation="5dp"
-        app:cardCornerRadius="@dimen/loginCardRadius"
-        app:layout_margin="@{10}"
-        tools:layout_margin="10dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            style="@style/linearParent"
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:layout_marginBottom="@{10}"
-            app:layout_marginEnd="@{16}"
-            app:layout_marginStart="@{16}"
-            app:layout_marginTop="@{10}"
-            tools:layout_marginBottom="10dp"
-            tools:layout_marginEnd="16dp"
-            tools:layout_marginStart="16dp"
-            tools:layout_marginTop="10dp">
+            android:elevation="5dp"
+            app:cardCornerRadius="@dimen/loginCardRadius"
+            app:layout_marginStart="@{10}"
+            tools:layout_marginStart="10dp"
+            app:layout_marginEnd="@{10}"
+            tools:layout_marginEnd="10dp"
+            tools:layout_marginTop="20dp"
+            app:layout_marginTop="@{20}"
+            tools:layout_marginBottom="20dp"
+            app:layout_marginBottom="@{20}">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_profile"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+            <LinearLayout
+                style="@style/linearParent"
                 android:layout_gravity="center"
-                android:elevation="4dp"
-                android:onClick="@{() -> listener.onPhotoClick()}"
-                android:src="@mipmap/ic_launcher_round"
-                app:layout_height="@{96}"
-                app:layout_width="@{96}" />
-
-            <!--<TextView
-                style="@style/headerTextPrimary"
-                app:layout_marginTop="@{20}"
-                tools:layout_marginTop="20dp"
-                android:text="@string/register"
-                android:fontFamily="@font/roboto_medium"/>-->
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_name"
-                style="@style/parent"
+                app:layout_marginBottom="@{10}"
+                app:layout_marginEnd="@{16}"
+                app:layout_marginStart="@{16}"
                 app:layout_marginTop="@{10}"
+                tools:layout_marginBottom="10dp"
+                tools:layout_marginEnd="16dp"
+                tools:layout_marginStart="16dp"
                 tools:layout_marginTop="10dp">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_name"
-                    style="@style/ModifiedEditText"
-                    android:fontFamily="@font/roboto"
-                    android:hint="Name"
-                    android:inputType="text"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_gravity="center"
+                    android:elevation="4dp"
+                    android:onClick="@{() -> listener.onPhotoClick()}"
+                    android:src="@mipmap/ic_launcher_round"
+                    app:layout_height="@{96}"
+                    app:layout_width="@{96}" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_add"
-                style="@style/parent"
-                app:layout_marginTop="@{10}"
-                tools:layout_marginTop="10dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_name"
+                    style="@style/parent"
+                    app:layout_marginTop="@{10}"
+                    tools:layout_marginTop="10dp">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_address"
-                    style="@style/ModifiedEditText"
-                    android:fontFamily="@font/roboto"
-                    android:hint="Address"
-                    android:inputType="textPostalAddress"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_name"
+                        style="@style/ModifiedEditText"
+                        android:fontFamily="@font/roboto"
+                        android:hint="Name"
+                        android:inputType="text"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_pincode"
-                style="@style/parent"
-                app:layout_marginTop="@{10}"
-                tools:layout_marginTop="10dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_add"
+                    style="@style/parent"
+                    app:layout_marginTop="@{10}"
+                    tools:layout_marginTop="10dp">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_pincode"
-                    style="@style/ModifiedEditText"
-                    android:fontFamily="@font/roboto"
-                    android:hint="Pincode"
-                    android:inputType="number"
-                    android:maxLength="6"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_address"
+                        style="@style/ModifiedEditText"
+                        android:fontFamily="@font/roboto"
+                        android:hint="Address"
+                        android:inputType="textPostalAddress"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_mobile"
-                style="@style/parent"
-                app:layout_marginTop="@{10}"
-                tools:layout_marginTop="10dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_pincode"
+                    style="@style/parent"
+                    app:layout_marginTop="@{10}"
+                    tools:layout_marginTop="10dp">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_mobile"
-                    style="@style/ModifiedEditText"
-                    android:fontFamily="@font/roboto"
-                    android:hint="Mobile"
-                    android:inputType="number"
-                    android:maxLength="10"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_pincode"
+                        style="@style/ModifiedEditText"
+                        android:fontFamily="@font/roboto"
+                        android:hint="Pincode"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_mobile"
+                    style="@style/parent"
+                    app:layout_marginTop="@{10}"
+                    tools:layout_marginTop="10dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_mobile"
+                        style="@style/ModifiedEditText"
+                        android:fontFamily="@font/roboto"
+                        android:hint="Mobile"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_email"
-                style="@style/parent"
-                app:layout_marginTop="@{10}"
-                tools:layout_marginTop="10dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_email"
+                    style="@style/parent"
+                    app:layout_marginTop="@{10}"
+                    tools:layout_marginTop="10dp">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_email"
-                    style="@style/ModifiedEditText"
-                    android:fontFamily="@font/roboto"
-                    android:hint="Email Id"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_email"
+                        style="@style/ModifiedEditText"
+                        android:fontFamily="@font/roboto"
+                        android:hint="Email Id"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_user"
-                style="@style/parent"
-                app:layout_marginTop="@{10}"
-                tools:layout_marginTop="10dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_user"
+                    style="@style/parent"
+                    app:layout_marginTop="@{10}"
+                    tools:layout_marginTop="10dp">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_user"
-                    style="@style/ModifiedEditText"
-                    android:fontFamily="@font/roboto"
-                    android:hint="User name"
-                    android:inputType="text"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_user"
+                        style="@style/ModifiedEditText"
+                        android:fontFamily="@font/roboto"
+                        android:hint="User name"
+                        android:inputType="text"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_pass"
-                style="@style/parent"
-                app:layout_marginTop="@{10}"
-                tools:layout_marginTop="10dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_pass"
+                    style="@style/parent"
+                    app:layout_marginTop="@{10}"
+                    tools:layout_marginTop="10dp">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_pass"
-                    style="@style/ModifiedEditText"
-                    android:fontFamily="@font/roboto"
-                    android:hint="@string/login_password_hint"
-                    android:inputType="textPassword"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_pass"
+                        style="@style/ModifiedEditText"
+                        android:fontFamily="@font/roboto"
+                        android:hint="@string/login_password_hint"
+                        android:inputType="textPassword"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
-                style="@style/ButtonAppearance"
-                android:layout_gravity="center"
-                android:onClick="@{() -> listener.onSignUpClick()}"
-                android:text="Sign Up"
-                app:cornerRadius="26dp"
-                app:layout_marginTop="@{20}"
-                tools:layout_marginTop="20dp" />
+                <com.google.android.material.button.MaterialButton
+                    style="@style/ButtonAppearance"
+                    android:layout_gravity="center"
+                    android:onClick="@{() -> listener.onSignUpClick()}"
+                    android:text="Sign Up"
+                    app:cornerRadius="26dp"
+                    app:layout_marginTop="@{20}"
+                    tools:layout_marginTop="20dp" />
 
-            <TextView
-                style="@style/parent"
-                android:onClick="@{() -> listener.onSignInBackClick()}"
-                android:text="@string/signup_login_hint"
-                android:textAlignment="center"
-                android:textColor="@color/primaryTextColor"
-                android:textStyle="bold"
-                app:layout_marginTop="@{20}"
-                tools:layout_marginTop="16dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+    </ScrollView>
 
 </layout>

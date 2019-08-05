@@ -21,10 +21,10 @@ public class TrainViewModel extends ViewModel {
         trainRepository = TrainRepository.getInstance(UserDatabase.getDatabase(context).trainDao());
     }
 
-    public void createTrain(Context context, String username, String arrTime, String deparTime, String date, String avalTrain,
+    public void createTrain(int userId, String arrTime, String deparTime, String date, String avalTrain,
                             String price, String name, String seats) {
 
-        trainRepository.insertTrain(context, username, arrTime, deparTime, date, avalTrain,
+        trainRepository.insertTrain(userId, arrTime, deparTime, date, avalTrain,
                 price, name, seats);
     }
 

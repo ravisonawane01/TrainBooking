@@ -15,7 +15,6 @@ public class TrainRepository {
 
     private static TrainRepository instance;
     private final TrainDao trainDao;
-    private LiveData<TrainEntity> useLiveData;
 
     private TrainRepository(TrainDao trainDao) {
         this.trainDao = trainDao;
@@ -28,14 +27,14 @@ public class TrainRepository {
         return instance;
     }
 
-    public LiveData<List<TrainEntity>> fetchDetails(String uId) {
-        return trainDao.getTrainDetails(uId);
+    public LiveData<List<TrainEntity>> fetchDetails(String userId) {
+        return trainDao.getTrainDetails(userId);
     }
 
-    public TrainEntity insertTrain(Context context, String username, String arrTime, String deparTime, String date, String avalTrain,
+    public TrainEntity insertTrain(int userId, String arrTime, String deparTime, String date, String avalTrain,
                             String price, String name, String seats) {
 
-        TrainEntity trainEntity = new TrainEntity(username, arrTime, deparTime, date, avalTrain,
+        TrainEntity trainEntity = new TrainEntity(userId, arrTime, deparTime, date, avalTrain,
                 price, name, seats);
         trainDao.insert(trainEntity);
         return trainEntity;

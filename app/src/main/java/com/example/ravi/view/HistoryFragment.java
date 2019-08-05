@@ -20,6 +20,7 @@ import com.example.ravi.entity.TrainEntity;
 import com.example.ravi.utils.SharePrefUtil;
 import com.example.ravi.viewmodel.TrainViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HistoryFragment extends BaseContainerFragment {
@@ -27,18 +28,31 @@ public class HistoryFragment extends BaseContainerFragment {
     FragmentHistoryBinding historyBinding;
     private TrainViewModel trainViewModel;
     private TrainListAdapter adapter;
+    private List<TrainEntity> mtrainEntities = new ArrayList<>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         historyBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_history, container, false);
-        initRecyclerview();
         return historyBinding.getRoot();
     }
 
     private void initRecyclerview() {
-        adapter = new TrainListAdapter(getActivity());
-        historyBinding.recyclerview.setAdapter(adapter);
-        historyBinding.recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
+        trainViewModel.getTrainDetails(SharePrefUtil.getUserId(getActivity()))
+                .observe(this, new Observer<List<TrainEntity>>() {
+                    @Override
+                    public void onChanged(@Nullable final List<TrainEntity> trainEntities) {
+                        // Update the cached copy of the words in the adapter.
+                        //adapter.setmProducts(trainEntities);
+                        if (mtrainEntities != null) {
+                            mtrainEntities.clear();
+                        }
+                        mtrainEntities.addAll(trainEntities);
+                        adapter = new TrainListAdapter(getActivity(), mtrainEntities);
+                        historyBinding.recyclerview.setAdapter(adapter);
+                        historyBinding.recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
+                        //adapter.setmProducts(mtrainEntities);
+                    }
+                });
     }
 
     @Override
@@ -50,13 +64,6 @@ public class HistoryFragment extends BaseContainerFragment {
     @Override
     public void onResume() {
         super.onResume();
-        trainViewModel.getTrainDetails(SharePrefUtil.getUId(getActivity()))
-                .observe(this, new Observer<List<TrainEntity>>() {
-                    @Override
-                    public void onChanged(@Nullable final List<TrainEntity> trainEntities) {
-                        // Update the cached copy of the words in the adapter.
-                        adapter.setmProducts(trainEntities);
-                    }
-                });
+        initRecyclerview();
     }
 }

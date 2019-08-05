@@ -23,7 +23,8 @@ public class UserRepository {
     }
 
     public boolean isValidAccount(String username, final String password) {
-        UserEntity userEntity = userDao.getUserDetails(username);
+        String userId = String.valueOf(getId(username));
+        UserEntity userEntity = userDao.getUserDetails(userId);
         if (userEntity != null) {
             if (userEntity.getPassword() != null) {
                 return userEntity.getPassword().equals(password);

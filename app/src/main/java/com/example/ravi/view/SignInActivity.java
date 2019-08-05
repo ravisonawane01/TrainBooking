@@ -2,6 +2,7 @@ package com.example.ravi.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -10,7 +11,6 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.ravi.R;
 import com.example.ravi.databinding.ActivitySignInBinding;
 import com.example.ravi.utils.SharePrefUtil;
-import com.example.ravi.utils.Util;
 import com.example.ravi.utils.validator.EmptyValidator;
 import com.example.ravi.utils.validator.SimpleValidator;
 import com.example.ravi.utils.validator.Validator;
@@ -37,16 +37,14 @@ public class SignInActivity extends AppCompatActivity {
 
             boolean isValid = userViewModel.checkValidLogin(username, password);
             if (isValid) {
-
                 int userId = userViewModel.getId(username);
                 SharePrefUtil.setUserId(this, String.valueOf(userId));
-
-                Util.displayAlertDialog(this, "Login Success", "Successfully Logged In.");
+                Toast.makeText(this, "Successfully Logged In.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, DashboardActivity.class);
                 startActivity(intent);
                 this.finish();
             } else {
-                Util.displayAlertDialog(this, "Invalid Login", "Your login credentials are invalid.");
+                Toast.makeText(this, "Your login credentials are invalid.", Toast.LENGTH_SHORT).show();
             }
         }
     }

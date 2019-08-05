@@ -12,8 +12,8 @@ public class TrainEntity {
 
     @PrimaryKey(autoGenerate = true)
     public int id;
-    @ColumnInfo(name = "uId")
-    public int uId;
+    @ColumnInfo(name = "userId")
+    public int userId;
     @ColumnInfo(name = "username")
     public String username;
     @ColumnInfo(name = "arrTime")
@@ -31,12 +31,10 @@ public class TrainEntity {
     @ColumnInfo(name = "name")
     public String name;
 
-    public TrainEntity() {
 
-    }
-
-    public TrainEntity(String username, String arrTime, String deparTime, String date, String avalTrain,
+    public TrainEntity(int userId, String arrTime, String deparTime, String date, String avalTrain,
                        String price, String name, String seats) {
+        this.userId = userId;
         this.username = username;
         this.arrTime = arrTime;
         this.deparTime = deparTime;
@@ -53,6 +51,14 @@ public class TrainEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {

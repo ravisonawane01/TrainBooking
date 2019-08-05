@@ -3,6 +3,7 @@ package com.example.ravi.view;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -10,7 +11,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.ravi.R;
 import com.example.ravi.databinding.ActivitySignUpBinding;
-import com.example.ravi.utils.Util;
 import com.example.ravi.utils.validator.EmailValidator;
 import com.example.ravi.utils.validator.EmptyValidator;
 import com.example.ravi.utils.validator.PasswordValidator;
@@ -53,7 +53,7 @@ public class SignUpActivity extends AppCompatActivity {
                     etPincode, etMobile,
                     etEmail, etUser,
                     etPass, photo);
-            Util.displayAlertDialog(this, "Success", "Successfully Created An Account.");
+            Toast.makeText(this, "Successfully Created An Account.", Toast.LENGTH_SHORT).show();
         }
 
         finish();
@@ -64,10 +64,6 @@ public class SignUpActivity extends AppCompatActivity {
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "select a picture"), IMAGE_CODE);
-    }
-
-    public void onSignInBackClick() {
-        finish();
     }
 
     @Override
@@ -123,7 +119,7 @@ public class SignUpActivity extends AppCompatActivity {
             return false;
 
         } else if (!emptyValidator.validate(photo)) {
-            Util.displayAlertDialog(this, "Error", "Please select Profile Picture.");
+            Toast.makeText(this, "Please select Profile Picture.", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

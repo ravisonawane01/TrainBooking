@@ -15,6 +15,6 @@ public interface TrainDao {
     @Insert
     void insert(TrainEntity trainEntity);
 
-    @Query("SELECT * FROM train_table WHERE id = :id ORDER BY name ASC")
-    LiveData<List<TrainEntity>> getTrainDetails(String id);
+    @Query("SELECT * FROM train_table WHERE train_table.id = :userId ORDER BY train_table.name ASC")
+    LiveData<List<TrainEntity>> getTrainDetails(String userId);
 }

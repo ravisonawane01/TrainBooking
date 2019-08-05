@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,7 +37,8 @@ public class BookingFragment extends BaseContainerFragment {
     }
 
     public void onBookClick() {
-        trainViewModel.createTrain(getActivity(), SharePrefUtil.getUsername(getActivity()),
+        int userId = Integer.parseInt(SharePrefUtil.getUserId(getActivity()));
+        trainViewModel.createTrain(userId,
                 bookingBinding.arrivalTime.getSelectedItem().toString(),
                 bookingBinding.departureTime.getSelectedItem().toString(),
                 bookingBinding.date.getSelectedItem().toString(),
@@ -44,6 +46,6 @@ public class BookingFragment extends BaseContainerFragment {
                 bookingBinding.price.getSelectedItem().toString(),
                 bookingBinding.trainName.getSelectedItem().toString(),
                 bookingBinding.availableSeats.getSelectedItem().toString());
-        Util.displayAlertDialog(getActivity(), "Success", "Successfully Booked a Train.");
+        Toast.makeText(getActivity(), "Successfully Booked a Train.", Toast.LENGTH_SHORT).show();
     }
 }

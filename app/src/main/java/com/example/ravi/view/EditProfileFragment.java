@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -75,7 +76,7 @@ public class EditProfileFragment extends BaseContainerFragment {
                         editProfileBinding.etAddress.getText().toString(),
                         editProfileBinding.etEmail.getText().toString(),
                         photo);
-                Util.displayAlertDialog(getActivity(), "Success", "Successfully Updated Profile.");
+                Toast.makeText(getActivity(), "Successfully Updated Profile.", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

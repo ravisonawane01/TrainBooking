@@ -15,9 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@color/whiteCardColor"
         android:elevation="5dp"
-        app:cardCornerRadius="@dimen/loginCardRadius"
+        app:cardCornerRadius="4dp"
         app:layout_margin="@{10}"
         tools:layout_margin="10dp">
 
@@ -31,9 +30,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
+                android:padding="6dp"
                 android:text="@{trainvm.name}"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
+                android:textColor="@android:color/black"
                 app:layout_marginTop="@{14}"
                 tools:layout_marginTop="14dp" />
 
@@ -42,9 +41,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
+                android:padding="6dp"
                 android:text="@{trainvm.arrTime}"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
+                android:textColor="@android:color/black"
                 app:layout_marginTop="@{14}"
                 tools:layout_marginTop="14dp" />
 
@@ -54,9 +53,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
+                android:padding="6dp"
                 android:text="@{trainvm.date}"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
+                android:textColor="@android:color/black"
                 app:layout_marginTop="@{14}"
                 tools:layout_marginTop="14dp" />
 
@@ -65,9 +64,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
+                android:padding="6dp"
                 android:text="@{trainvm.price}"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
+                android:textColor="@android:color/black"
                 app:layout_marginTop="@{14}"
                 tools:layout_marginTop="14dp" />
 
@@ -76,9 +75,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
+                android:padding="6dp"
                 android:text="@{trainvm.seats}"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
+                android:textColor="@android:color/black"
                 app:layout_marginTop="@{14}"
                 tools:layout_marginTop="14dp" />
 

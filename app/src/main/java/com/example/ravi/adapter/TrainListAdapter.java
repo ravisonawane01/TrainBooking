@@ -17,10 +17,11 @@ import java.util.List;
 
 public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.ProductViewHolder> {
     private final LayoutInflater mInflater;
-    private List<TrainEntity> trainEntities = new ArrayList<>(); // Cached copy of words
+    private List<TrainEntity> mtrainEntities = new ArrayList<>();
 
-    public TrainListAdapter(Context context) {
+    public TrainListAdapter(Context context, List<TrainEntity> trainEntities) {
         mInflater = LayoutInflater.from(context);
+        this.mtrainEntities = trainEntities;
     }
 
     @NonNull
@@ -34,28 +35,25 @@ public class TrainListAdapter extends RecyclerView.Adapter<TrainListAdapter.Prod
 
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, int position) {
-        if (trainEntities != null) {
-            TrainEntity trainEntity = trainEntities.get(position);
+        if (mtrainEntities != null) {
+            TrainEntity trainEntity = mtrainEntities.get(position);
             holder.adapterListBinding.setTrainvm(trainEntity);
         }
-
-        holder.adapterListBinding.executePendingBindings();
     }
 
     public void setmProducts(List<TrainEntity> trainEntities) {
-        if (trainEntities != null) {
-            trainEntities.clear();
+        if (mtrainEntities != null) {
+            mtrainEntities.clear();
         }
-        this.trainEntities.addAll(trainEntities);
-        notifyDataSetChanged();
+        mtrainEntities.addAll(trainEntities);
     }
 
     // getItemCount() is called many times, and when it is first called,
     // mWords has not been updated (means initially, it's null, and we can't return null).
     @Override
     public int getItemCount() {
-        if (trainEntities != null)
-            return trainEntities.size();
+        if (mtrainEntities != null)
+            return mtrainEntities.size();
         else return 0;
     }
 
