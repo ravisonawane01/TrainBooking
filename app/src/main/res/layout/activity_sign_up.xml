@@ -38,7 +38,7 @@
                 android:layout_gravity="center"
                 android:elevation="4dp"
                 android:onClick="@{() -> listener.onPhotoClick()}"
-                android:src="@mipmap/ic_launcher"
+                android:src="@mipmap/ic_launcher_round"
                 app:layout_height="@{96}"
                 app:layout_width="@{96}" />
 
@@ -55,7 +55,7 @@
                 app:layout_marginTop="@{10}"
                 tools:layout_marginTop="10dp">
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_name"
                     style="@style/ModifiedEditText"
                     android:fontFamily="@font/roboto"
@@ -70,7 +70,7 @@
                 app:layout_marginTop="@{10}"
                 tools:layout_marginTop="10dp">
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_address"
                     style="@style/ModifiedEditText"
                     android:fontFamily="@font/roboto"
@@ -85,7 +85,7 @@
                 app:layout_marginTop="@{10}"
                 tools:layout_marginTop="10dp">
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_pincode"
                     style="@style/ModifiedEditText"
                     android:fontFamily="@font/roboto"
@@ -101,7 +101,7 @@
                 app:layout_marginTop="@{10}"
                 tools:layout_marginTop="10dp">
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_mobile"
                     style="@style/ModifiedEditText"
                     android:fontFamily="@font/roboto"
@@ -118,7 +118,7 @@
                 app:layout_marginTop="@{10}"
                 tools:layout_marginTop="10dp">
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_email"
                     style="@style/ModifiedEditText"
                     android:fontFamily="@font/roboto"
@@ -133,7 +133,7 @@
                 app:layout_marginTop="@{10}"
                 tools:layout_marginTop="10dp">
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_user"
                     style="@style/ModifiedEditText"
                     android:fontFamily="@font/roboto"
@@ -148,7 +148,7 @@
                 app:layout_marginTop="@{10}"
                 tools:layout_marginTop="10dp">
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_pass"
                     style="@style/ModifiedEditText"
                     android:fontFamily="@font/roboto"
@@ -161,7 +161,7 @@
                 style="@style/ButtonAppearance"
                 android:layout_gravity="center"
                 android:onClick="@{() -> listener.onSignUpClick()}"
-                android:text="Register"
+                android:text="Sign Up"
                 app:cornerRadius="26dp"
                 app:layout_marginTop="@{20}"
                 tools:layout_marginTop="20dp" />

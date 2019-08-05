@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.ravi.DashboardActivity;
 import com.example.ravi.R;
 import com.example.ravi.databinding.ActivitySignUpBinding;
 import com.example.ravi.utils.Util;
@@ -45,7 +44,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         String photo = null;
         if (selectedImageUri != null) {
-            photo = selectedImageUri.getPath();
+            photo = selectedImageUri.toString();
         }
 
         if (isSignUpInValid(etName, etAddress, etPincode, etMobile, etEmail, etUser, etPass, photo)) {
@@ -56,6 +55,8 @@ public class SignUpActivity extends AppCompatActivity {
                     etPass, photo);
             Util.displayAlertDialog(this, "Success", "Successfully Created An Account.");
         }
+
+        finish();
     }
 
     public void onPhotoClick() {

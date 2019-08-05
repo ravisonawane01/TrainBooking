@@ -6,11 +6,12 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.ravi.dao.TrainDao;
 import com.example.ravi.dao.UserDao;
+import com.example.ravi.entity.TrainEntity;
 import com.example.ravi.entity.UserEntity;
-import com.example.ravi.sqlAsset.AssetSQLiteOpenHelperFactory;
 
-@Database(entities = {UserEntity.class}, version = 1)
+@Database(entities = {UserEntity.class, TrainEntity.class}, version = 1)
 public abstract class UserDatabase extends RoomDatabase {
 
     public static UserDatabase INSTANCE;
@@ -44,4 +45,6 @@ public abstract class UserDatabase extends RoomDatabase {
     }
 
     public abstract UserDao userDao();
+
+    public abstract TrainDao trainDao();
 }

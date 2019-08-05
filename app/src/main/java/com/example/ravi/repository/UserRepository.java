@@ -1,6 +1,5 @@
 package com.example.ravi.repository;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
 import com.example.ravi.dao.UserDao;
@@ -24,16 +23,33 @@ public class UserRepository {
     }
 
     public boolean isValidAccount(String username, final String password) {
-
         UserEntity userEntity = userDao.getUserDetails(username);
-        return userEntity.getPassword().equals(password);
+        if (userEntity != null) {
+            if (userEntity.getPassword() != null) {
+                return userEntity.getPassword().equals(password);
+            }
+        }
+        return false;
+    }
+
+    public UserEntity fetchDetails(String userId) {
+        return userDao.getUserDetails(userId);
     }
 
     public void insertUser(String name, String address, String pincode, String mobile,
-                           String email, @NonNull String username, String password, String photo) {
+                           String email, String username, String password, String photo) {
 
         UserEntity userEntity = new UserEntity(name, address, pincode, mobile,
                 email, username, password, photo);
+
         userDao.insert(userEntity);
+    }
+
+    public void updateUser(String userId, String address, String email, String photo) {
+        userDao.update(userId, address, email, photo);
+    }
+
+    public int getId(String username) {
+        return userDao.getId(username);
     }
 }

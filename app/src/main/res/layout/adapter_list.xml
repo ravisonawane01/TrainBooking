@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="trainvm"
+            type="com.example.ravi.entity.TrainEntity" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/whiteCardColor"
+        android:elevation="5dp"
+        app:cardCornerRadius="@dimen/loginCardRadius"
+        app:layout_margin="@{10}"
+        tools:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@{trainvm.name}"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                app:layout_marginTop="@{14}"
+                tools:layout_marginTop="14dp" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@{trainvm.arrTime}"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                app:layout_marginTop="@{14}"
+                tools:layout_marginTop="14dp" />
+
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@{trainvm.date}"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                app:layout_marginTop="@{14}"
+                tools:layout_marginTop="14dp" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@{trainvm.price}"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                app:layout_marginTop="@{14}"
+                tools:layout_marginTop="14dp" />
+
+            <TextView
+                android:id="@+id/seats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@{trainvm.seats}"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                app:layout_marginTop="@{14}"
+                tools:layout_marginTop="14dp" />
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

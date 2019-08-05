@@ -72,7 +72,7 @@
             <com.google.android.material.button.MaterialButton
                 style="@style/ButtonAppearance"
                 android:layout_gravity="center_horizontal"
-                android:text="Login"
+                android:text="Sign In"
                 app:cornerRadius="26dp"
                 app:layout_marginTop="@{20}"
                 tools:layout_marginTop="20dp"

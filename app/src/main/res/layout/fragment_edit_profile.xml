@@ -1,11 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <data>
 
-    </LinearLayout>
+        <import type="android.view.View" />
+
+        <variable
+            name="listener"
+            type="com.example.ravi.view.EditProfileFragment" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/loginCard"
+        android:layout_gravity="center"
+        android:background="@color/whiteCardColor"
+        android:elevation="5dp"
+        app:cardCornerRadius="@dimen/loginCardRadius"
+        app:layout_margin="@{10}"
+        tools:layout_margin="10dp">
+
+        <LinearLayout
+            style="@style/linearParent"
+            android:layout_gravity="center"
+            app:layout_marginBottom="@{10}"
+            app:layout_marginEnd="@{16}"
+            app:layout_marginStart="@{16}"
+            app:layout_marginTop="@{10}"
+            tools:layout_marginBottom="10dp"
+            tools:layout_marginEnd="16dp"
+            tools:layout_marginStart="16dp"
+            tools:layout_marginTop="10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_edit_pic"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:elevation="4dp"
+                android:onClick="@{(view) -> listener.onClickEvents(view)}"
+                android:src="@mipmap/ic_launcher_round"
+                app:layout_height="@{96}"
+                app:layout_width="@{96}" />
+
+            <!--<TextView
+                style="@style/headerTextPrimary"
+                app:layout_marginTop="@{20}"
+                tools:layout_marginTop="20dp"
+                android:text="@string/register"
+                android:fontFamily="@font/roboto_medium"/>-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_add"
+                style="@style/parent"
+                app:layout_marginTop="@{10}"
+                tools:layout_marginTop="10dp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_address"
+                    style="@style/ModifiedEditText"
+                    android:fontFamily="@font/roboto"
+                    android:hint="Address"
+                    android:inputType="textPostalAddress"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_email"
+                style="@style/parent"
+                app:layout_marginTop="@{10}"
+                tools:layout_marginTop="10dp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_email"
+                    style="@style/ModifiedEditText"
+                    android:fontFamily="@font/roboto"
+                    android:hint="Email Id"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_edit"
+                style="@style/ButtonAppearance"
+                android:layout_gravity="center"
+                android:onClick="@{(view) -> listener.onClickEvents(view)}"
+                android:text="Edit"
+                app:cornerRadius="26dp"
+                app:layout_marginTop="@{20}"
+                tools:layout_marginTop="20dp" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </layout>

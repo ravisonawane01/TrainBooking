@@ -11,6 +11,12 @@ public interface UserDao {
     @Insert
     void insert(UserEntity userEntity);
 
-    @Query("SELECT * FROM user_table WHERE user_table.username LIKE :username")
-    UserEntity getUserDetails(String username);
+    @Query("UPDATE user_table SET address = :address, email = :email, photo = :photo WHERE user_table.id = :userId")
+    void update(String userId, String address, String email, String photo);
+
+    @Query("SELECT * FROM user_table WHERE user_table.id = :userId")
+    UserEntity getUserDetails(String userId);
+
+    @Query("SELECT id FROM user_table WHERE user_table.username = :username")
+    int getId(String username);
 }

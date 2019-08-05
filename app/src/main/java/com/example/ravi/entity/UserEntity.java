@@ -12,8 +12,8 @@ public class UserEntity {
 
     public static final String TABLE_NAME = "user_table";
 
-    @PrimaryKey
-    @NonNull
+    @PrimaryKey(autoGenerate = true)
+    public int id;
     @ColumnInfo(name = "username")
     String username;
     @ColumnInfo(name = "password")
@@ -36,7 +36,7 @@ public class UserEntity {
     }
 
     public UserEntity(String name, String address, String pincode, String mobile,
-                      String email, @NonNull String username, String password, String photo) {
+                      String email, String username, String password, String photo) {
         this.name = name;
         this.address = address;
         this.pincode = pincode;
@@ -45,6 +45,14 @@ public class UserEntity {
         this.username = username;
         this.password = password;
         this.photo = photo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -87,7 +95,6 @@ public class UserEntity {
         this.email = email;
     }
 
-    @NonNull
     public String getUsername() {
         return username;
     }

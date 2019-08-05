@@ -27,7 +27,7 @@
             android:theme="@style/FullScreenTheme" />
 
         <activity
-            android:name=".DashboardActivity"
+            android:name=".view.DashboardActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 

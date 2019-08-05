@@ -6,4 +6,47 @@
     <string name="signup_login_hint">Already have an account? Sign In</string>
     <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
 
+    <string-array name="arrival_time">
+        <item>Select Arrival Time</item>
+        <item>12:10AM</item>
+        <item>15.30AM</item>
+    </string-array>
+
+    <string-array name="departure_time">
+        <item>Select Departure Time</item>
+        <item>12:20AM</item>
+        <item>15.40AM</item>
+    </string-array>
+
+    <string-array name="date">
+        <item>Select Date</item>
+        <item>03/08/2019</item>
+        <item>04/08/2019</item>
+    </string-array>
+
+    <string-array name="available_trains">
+        <item>Select Available Trains</item>
+        <item>Rajdhani Express</item>
+        <item>Gitanjali Superfast Express</item>
+    </string-array>
+
+    <string-array name="price">
+        <item>Select Price</item>
+        <item>250 INR</item>
+        <item>550 INR</item>
+    </string-array>
+
+    <string-array name="seats">
+        <item>Select Seats</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="train_name">
+        <item>Select Train Name</item>
+        <item>Rajdhani Express</item>
+        <item>Gitanjali Superfast Express</item>
+        <item>Panchvati Express</item>
+    </string-array>
+
 </resources>

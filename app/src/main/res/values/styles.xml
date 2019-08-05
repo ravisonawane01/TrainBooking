@@ -54,12 +54,6 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="loginButton" parent="viewParent">
-        <item name="android:background">@drawable/login_button_bk</item>
-        <item name="android:textColor">@color/whiteTextColor</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
     <style name="ButtonAppearance" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -79,18 +73,12 @@
 
     <style name="ModifiedEditText" parent="parent">
         <item name="android:textSize">@dimen/newsMoreTextSize</item>
-        <item name="android:backgroundTint">#e0e0e0</item>
-    </style>
-
-    <style name="ErrorText" parent="TextAppearance.Design.Error">
-        <item name="android:textSize">11sp</item>
-        <!--<item name="android:textColor">@color/accentRed</item>-->
     </style>
 
     <style name="EditTextAppearance" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <!--<item name="boxStrokeColor">#49B8C7</item>-->
         <item name="boxStrokeWidth">0.5dp</item>
-        <item name="boxBackgroundColor">#e0e0e0</item>
+        <item name="boxBackgroundColor">@color/colorEditText</item>
     </style>
 
 

@@ -8,7 +8,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Util implements Constants {
+public class Util {
 
     /**
      * applies regex on given string and returns true if string is valid else false
