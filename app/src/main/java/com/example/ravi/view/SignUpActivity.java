@@ -55,8 +55,6 @@ public class SignUpActivity extends AppCompatActivity {
                     etPass, photo);
             Toast.makeText(this, "Successfully Created An Account.", Toast.LENGTH_SHORT).show();
         }
-
-        finish();
     }
 
     public void onPhotoClick() {
@@ -92,8 +90,8 @@ public class SignUpActivity extends AppCompatActivity {
             signUpBinding.etAddress.setError("Please enter Address.");
             signUpBinding.etAddress.requestFocus();
             return false;
-        }
-        if (!emptyValidator.validate(etPincode)) {
+
+        } else if (!emptyValidator.validate(etPincode)) {
             signUpBinding.etPincode.setError("Please enter PinCode.");
             signUpBinding.etPincode.requestFocus();
             return false;
@@ -102,8 +100,8 @@ public class SignUpActivity extends AppCompatActivity {
             signUpBinding.etMobile.setError("Please enter Mobile.");
             signUpBinding.etMobile.requestFocus();
             return false;
-        }
-        if (!emailValidator.validate(etEmail)) {
+
+        } else if (!emailValidator.validate(etEmail)) {
             signUpBinding.etEmail.setError("Please enter Valid Email Id.");
             signUpBinding.etEmail.requestFocus();
             return false;
@@ -112,8 +110,8 @@ public class SignUpActivity extends AppCompatActivity {
             signUpBinding.etUser.setError("Please enter Username.");
             signUpBinding.etUser.requestFocus();
             return false;
-        }
-        if (!passValidator.validate(etPass)) {
+
+        } else if (!passValidator.validate(etPass)) {
             signUpBinding.etPass.setError("Please enter Valid Password.");
             signUpBinding.etPass.requestFocus();
             return false;

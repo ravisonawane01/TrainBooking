@@ -42,20 +42,27 @@ public class EditProfileFragment extends BaseContainerFragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         userViewModel = ViewModelProviders.of(this, new UserViewModel.Factory(getActivity().getApplicationContext())).get(UserViewModel.class);
         userEntity = userViewModel.getUserDetails(SharePrefUtil.getUserId(getActivity()));
         editProfileBinding.etAddress.setText(userEntity.getAddress() != null ? userEntity.getAddress() : "");
         editProfileBinding.etEmail.setText(userEntity.getEmail() != null ? userEntity.getEmail() : "");
 
         Uri uri = Uri.parse(userEntity.getPhoto() != null ? userEntity.getPhoto() : "");
+        editProfileBinding.ivEditPic.setImageURI(uri);
 
-        Glide.with(getActivity())
+        /*Glide.with(getActivity())
                 .load(new File(uri.getPath()))
                 .placeholder(R.mipmap.ic_launcher_round)
                 .error(R.mipmap.ic_launcher_round)
-                .into(editProfileBinding.ivEditPic);
+                .into(editProfileBinding.ivEditPic);*/
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
     }
 
     public void onClickEvents(View view) {
